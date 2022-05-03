@@ -8,7 +8,9 @@ RUN npm install && npm run build
 
 FROM node:16-alpine3.12
 
-EXPOSE 5000
+ARG PORT = 5000
+
+EXPOSE ${PORT}
 
 WORKDIR /app
 
@@ -21,4 +23,4 @@ RUN npm install -g serve && adduser -S client &&  \
 
 USER client
 
-CMD serve -s -l 5000 build
+CMD serve -s -l ${PORT} build

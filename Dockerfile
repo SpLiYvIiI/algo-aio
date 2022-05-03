@@ -4,13 +4,17 @@ WORKDIR /app
 
 COPY . .
 
+ENV GENERATE_SOURCEMAP=false
+
 RUN npm install && npm run build
 
 FROM node:16-alpine3.12
 
 ARG PORT=5000
 
-EXPOSE ${PORT}
+ENV DEFAULTORPORT=${PORT}
+
+EXPOSE ${DEFAULTORPORT}
 
 WORKDIR /app
 
@@ -23,4 +27,4 @@ RUN npm install -g serve && adduser -S client &&  \
 
 USER client
 
-CMD serve -s -l ${PORT} build
+CMD serve -s -l ${DEFAULTORPORT} build

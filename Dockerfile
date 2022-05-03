@@ -8,7 +8,7 @@ RUN npm install && npm run build
 
 FROM node:16-alpine3.12
 
-ARG PORT = 5000
+ARG PORT=5000
 
 EXPOSE ${PORT}
 

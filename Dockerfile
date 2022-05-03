@@ -10,11 +10,9 @@ RUN npm install && npm run build
 
 FROM node:16-alpine3.12
 
-ARG PORT=5000
+ENV PORT=5000
 
-ENV DEFAULTORPORT=${PORT}
-
-EXPOSE ${DEFAULTORPORT}
+EXPOSE ${PORT}
 
 WORKDIR /app
 
@@ -27,4 +25,4 @@ RUN npm install -g serve && adduser -S client &&  \
 
 USER client
 
-CMD serve -s -l ${DEFAULTORPORT} build
+CMD serve -s -l ${PORT} build

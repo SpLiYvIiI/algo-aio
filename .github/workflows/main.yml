@@ -27,11 +27,9 @@ jobs:
 
     - name: Deploy to heroku
       if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip')}}
-      id: heroku
-      uses: jctaveras/heroku-deploy@v3.1.0 
+      uses: akhileshns/heroku-deploy@v3.12.12 
       with:
-        email: ${{ secrets.HEROKU_EMAIL }} 
-        api_key: ${{ secrets.HEROKU_API_KEY }} 
-        app_name: 'algo-aio' 
-        dockerfile_path: '.'
-        process_type: 'web' 
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "algo-aio" 
+        heroku_email: ${{secrets.HEROKU_EMAIL}}
+        usedocker: true

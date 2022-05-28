@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import Container from '@mui/material/Container';
 
 const Node = ({ data, changeRacxa }) => {
   const racxa = useRef()
   useEffect(()=>{
-      console.log("sadas");
 
       const svg = d3.select(racxa.current)
       svg
@@ -26,19 +26,20 @@ const Node = ({ data, changeRacxa }) => {
     [data])
 
   return (
-    <div>
+    <Container fixed>
      <svg
       ref={racxa}
       style={{
         height: 300,
-        width: 800,
+        paddingTop: 100,
+        width: 1000,
         marginRight: '0px',
         marginLeft: '0px',
       }}
       >
      </svg>
       <button onClick={()=> changeRacxa()}>shecvale radiusi</button>
-      </div>
+    </Container>
   );
 };
 

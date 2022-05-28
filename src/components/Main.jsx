@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import BarChart from './Circles';
+import React, {useState} from 'react';
+import NavigationBar from './NavigationBar';
+import Container from '@mui/material/Container';
+import Circles from './D3/Circles';
 
 const Main = () => {
   const [data,setData] = useState([{radius: 40},{radius: 40},{radius: 40},{radius: 40}])
@@ -13,12 +15,12 @@ const Main = () => {
     setData(newRadius)
   }
 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <BarChart data={data}  changeRacxa={changeRacxa}/>
-      </header>
-    </div>
+    <Container>
+      <NavigationBar/>
+      <Circles data={data} changeRacxa={changeRacxa}/>
+    </Container>
   );
 };
 

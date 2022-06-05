@@ -15,7 +15,7 @@ const pages = ['Graph traversal', 'Sorting'];
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = event => {
     setAnchorElNav(event.currentTarget);
   };
 
@@ -74,7 +74,7 @@ const NavigationBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {pages.map(page => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
@@ -100,7 +100,7 @@ const NavigationBar = () => {
             algo-AIO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map(page => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}

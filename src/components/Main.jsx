@@ -4,11 +4,10 @@ import Container from '@mui/material/Container';
 import BubbleSort from './D3/Sorting/BubbleSort';
 
 const Main = () => {
-
   return (
     <Container>
-      <NavigationBar/>
-      <BubbleSort/>
+      <NavigationBar />
+      <BubbleSort />
     </Container>
   );
 };

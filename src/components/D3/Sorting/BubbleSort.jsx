@@ -5,7 +5,7 @@ import { delay, seedDataRectangles } from '../../../utils';
 
 const BubbleSort = () => {
   const [data, setData] = useState(seedDataRectangles());
-  const [isSorting,setIsSorting] = useState(false)
+  const [isSorting, setIsSorting] = useState(false);
   const svgContainerRef = useRef();
   const svgContainerStyles = {
     height: 300,
@@ -25,7 +25,7 @@ const BubbleSort = () => {
   };
 
   const bubbleSort = async () => {
-    setIsSorting(true)
+    setIsSorting(true);
     const temp = data;
     for (let i = 0; i < temp.length; i++) {
       for (let j = 0; j < temp.length - i - 1; j++) {
@@ -51,7 +51,7 @@ const BubbleSort = () => {
         }
       }
     }
-    setIsSorting(false)
+    setIsSorting(false);
   };
 
   useEffect(() => {
@@ -80,13 +80,14 @@ const BubbleSort = () => {
 
   return (
     <Container fixed>
-      <svg
-        ref={svgContainerRef}
-        style={svgContainerStyles}
-      ></svg>
-      <button disabled={isSorting} onClick={() => changeInitData()}>Randomize array</button>
+      <svg ref={svgContainerRef} style={svgContainerStyles}></svg>
+      <button disabled={isSorting} onClick={() => changeInitData()}>
+        Randomize array
+      </button>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <button disabled={isSorting} onClick={() => bubbleSort()}>Sort</button>
+      <button disabled={isSorting} onClick={() => bubbleSort()}>
+        Sort
+      </button>
     </Container>
   );
 };

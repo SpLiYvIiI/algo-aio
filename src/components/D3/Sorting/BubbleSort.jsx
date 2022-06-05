@@ -39,15 +39,15 @@ const BubbleSort = () => {
           const secondRect = d3.select(`#${secondId}`);
           firstRect
             .transition()
-            .duration(1000)
+            .duration(500)
             .ease(d3.easeLinear)
             .attr('x', document.getElementById(secondId).getAttribute('x'));
           secondRect
             .transition()
-            .duration(1000)
+            .duration(500)
             .ease(d3.easeLinear)
             .attr('x', document.getElementById(firstId).getAttribute('x'));
-          await delay(1200);
+          await delay(600);
         }
       }
     }

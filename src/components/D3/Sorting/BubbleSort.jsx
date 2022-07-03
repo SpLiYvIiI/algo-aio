@@ -29,14 +29,26 @@ const BubbleSort = () => {
     const temp = data;
     for (let i = 0; i < temp.length; i++) {
       for (let j = 0; j < temp.length - i - 1; j++) {
+        const firstId = temp[j].id;
+        const secondId = temp[j + 1].id;
+        const firstRect = d3.select(`#${firstId}`);
+        const secondRect = d3.select(`#${secondId}`);
+        
+        firstRect.transition()
+        .duration(200)
+        .ease(d3.easeLinear)
+        .style('fill', 'red');
+        secondRect.transition()
+        .duration(200)
+        .ease(d3.easeLinear)
+        .style('fill', 'red');
+        await delay(300);
+
         if (temp[j].height > temp[j + 1].height) {
-          const firstId = temp[j].id;
-          const secondId = temp[j + 1].id;
+          
           const tmp = temp[j];
           temp[j] = temp[j + 1];
           temp[j + 1] = tmp;
-          const firstRect = d3.select(`#${firstId}`);
-          const secondRect = d3.select(`#${secondId}`);
           firstRect
             .transition()
             .duration(500)
@@ -49,7 +61,10 @@ const BubbleSort = () => {
             .attr('x', document.getElementById(firstId).getAttribute('x'));
           await delay(600);
         }
+        firstRect.style('fill', 'black');
+        secondRect.style('fill', 'black');
       }
+      d3.select(`#${temp[temp.length - i - 1].id}`).style('fill', 'yellow');
     }
     setIsSorting(false);
   };

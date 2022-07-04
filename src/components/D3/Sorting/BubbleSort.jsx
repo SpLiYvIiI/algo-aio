@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import Container from '@mui/material/Container';
-import { delay, seedDataRectangles } from '../../../utils';
+import { delay, seedDataRectangles } from '../../../common/utils';
 
 const BubbleSort = () => {
   const [data, setData] = useState(seedDataRectangles());
@@ -33,19 +33,20 @@ const BubbleSort = () => {
         const secondId = temp[j + 1].id;
         const firstRect = d3.select(`#${firstId}`);
         const secondRect = d3.select(`#${secondId}`);
-        
-        firstRect.transition()
-        .duration(200)
-        .ease(d3.easeLinear)
-        .style('fill', 'red');
-        secondRect.transition()
-        .duration(200)
-        .ease(d3.easeLinear)
-        .style('fill', 'red');
+
+        firstRect
+          .transition()
+          .duration(200)
+          .ease(d3.easeLinear)
+          .style('fill', 'red');
+        secondRect
+          .transition()
+          .duration(200)
+          .ease(d3.easeLinear)
+          .style('fill', 'red');
         await delay(300);
 
         if (temp[j].height > temp[j + 1].height) {
-          
           const tmp = temp[j];
           temp[j] = temp[j + 1];
           temp[j + 1] = tmp;

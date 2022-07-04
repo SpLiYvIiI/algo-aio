@@ -1,14 +1,18 @@
 import React from 'react';
-import NavigationBar from './NavigationBar';
-import Container from '@mui/material/Container';
 import BubbleSort from './D3/Sorting/BubbleSort';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import HomePage from './HomePage';
+import Algorithms from './Algorithms';
 
 const Main = () => {
   return (
-    <Container>
-      <NavigationBar />
-      <BubbleSort />
-    </Container>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/algorithms" element={<Algorithms />} />
+        <Route path="/algorithms/bubble-sort" element={<BubbleSort />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { delay, seedDataRectangles } from '../../../common/utils';
+import { delay, seedDataRectangles, randomNumber20ToX } from '../../../common/utils';
 import * as d3 from 'd3';
 import SortingVisualizationContainer from './SortingVisualizationContainer';
 import { Button, Grid } from '@mui/material';
@@ -9,12 +9,12 @@ import OverviewAndQuizz from '../../OverviewAndQuizz';
 const SortingContainer = () => {
   const [data, setData] = useState(seedDataRectangles());
   const [isSorting, setIsSorting] = useState(false);
+  const [isSorted, setIsSorted] = useState(false);
 
   // this randomizes data
   const changeInitData = () => {
     const newRadius = data.map(obj => {
-      const racxa = Math.round(Math.random() * 200);
-      obj.height = racxa;
+      obj.height = randomNumber20ToX(200);
       return obj;
     });
     setData(newRadius);
@@ -64,6 +64,62 @@ const SortingContainer = () => {
       }
       d3.select(`#${temp[temp.length - i - 1].id}`).style('fill', 'yellow');
     }
+    setIsSorting(false);
+    setIsSorted(true);
+  };
+
+  const InsertionSort = async () => {
+    setIsSorting(true);
+    const temp = data;
+
+    d3.select(`#${temp[0].id}`).transition()
+      .duration(200)
+      .style('fill', 'yellow');
+    await delay(300);
+
+    for (let i = 1; i < temp.length; i++) {
+      const key = temp[i];
+      let j = i - 1;
+
+      while (j >= 0 && temp[j].height > key.height) {
+        const firstId = temp[j].id;
+        const secondId = temp[j + 1].id;
+        const tmp = temp[j + 1];
+        const firstRect = d3.select(`#${firstId}`);
+        const secondRect = d3.select(`#${secondId}`);
+        firstRect.transition()
+          .duration(200)
+          .ease(d3.easeLinear)
+          .style('fill', 'red');
+        secondRect.transition()
+          .duration(200)
+          .ease(d3.easeLinear)
+          .style('fill', 'red');
+        await delay(300);
+        
+        temp[j + 1] = temp[j];
+        temp[j] = tmp;
+        j = j - 1;
+
+        firstRect
+          .transition()
+          .duration(500)
+          .ease(d3.easeLinear)
+          .attr('x', document.getElementById(secondId).getAttribute('x'));
+        secondRect
+          .transition()
+          .duration(500)
+          .ease(d3.easeLinear)
+          .attr('x', document.getElementById(firstId).getAttribute('x'));
+        await delay(600);
+
+        firstRect.style('fill', 'yellow');
+      }
+    temp[j + 1] = key;
+    d3.select(`#${temp[j+1].id}`).style('fill', 'yellow');
+    }
+    setIsSorting(false);
+    setIsSorted(true);
   };
 
   return (
@@ -107,7 +163,7 @@ const SortingContainer = () => {
               fontSize: '12px',
               marginLeft: '10px',
             }}
-            disabled={isSorting}
+            disabled={isSorting || isSorted}
             variant="contained"
             onClick={() => bubbleSort()}
           >

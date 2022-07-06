@@ -1,6 +1,6 @@
 const seedDataRectangles = () => {
   const seedData = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     seedData.push({
       id: `r${i}`,
       height: randomNumber20ToX(200),
@@ -18,7 +18,7 @@ const delay = delayInms => {
 };
 
 const randomNumber20ToX = x => {
-  return Math.round(Math.random() * (x-20) + 20);
+  return Math.round(Math.random() * (x - 20) + 20);
 };
 
 export { seedDataRectangles, delay, randomNumber20ToX };

@@ -1,9 +1,9 @@
 import React from 'react';
 import SortingContainer from './SortingContainer';
-const Sorting = () => {
+const Sorting = ({ algorithmName }) => {
   return (
     <div>
-      <SortingContainer />
+      <SortingContainer algorithmName={algorithmName} />
     </div>
   );
 };

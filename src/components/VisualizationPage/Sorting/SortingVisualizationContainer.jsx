@@ -24,7 +24,7 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
         return d.height;
       })
       .attr('x', function (d, i) {
-        return i * 70 + 60;
+        return i * 70 + (window.innerWidth - 700) / 2;
       })
       .attr('y', d => {
         return 250 - d.height;

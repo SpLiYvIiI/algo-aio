@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Grid } from '@mui/material';
-import algoaiologo from '../static/algo-aio-logo.png';
+import algoaiologo from '../../static/algo-aio-logo.png';
 import { useNavigate } from 'react-router-dom';
 import ParticlesBackground from './ParticlesBackground';
 

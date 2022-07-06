@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Algorithms = () => {
+const AlgorithmsNavigationPage = () => {
   return <div>this is page for algorithm navigation</div>;
 };
 
-export default Algorithms;
+export default AlgorithmsNavigationPage;

@@ -1,20 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import * as d3 from 'd3';
-import Container from '@mui/material/Container';
+import React, { useState } from 'react';
 import { delay, seedDataRectangles } from '../../../common/utils';
+import * as d3 from 'd3';
+import SortingVisualizationContainer from './SortingVisualizationContainer';
+import { Button, Grid } from '@mui/material';
+import Navigation from '../../Navigation';
+import OverviewAndQuizz from '../../OverviewAndQuizz';
 
-const BubbleSort = () => {
+const SortingContainer = () => {
   const [data, setData] = useState(seedDataRectangles());
   const [isSorting, setIsSorting] = useState(false);
-  const svgContainerRef = useRef();
-  const svgContainerStyles = {
-    height: 300,
-    paddingTop: 100,
-    width: 1000,
-    marginRight: '0px',
-    marginLeft: '0px',
-  };
 
+  // this randomizes data
   const changeInitData = () => {
     const newRadius = data.map(obj => {
       const racxa = Math.round(Math.random() * 200);
@@ -24,6 +20,7 @@ const BubbleSort = () => {
     setData(newRadius);
   };
 
+  // And here goes our sorting algorithms
   const bubbleSort = async () => {
     setIsSorting(true);
     const temp = data;
@@ -67,45 +64,60 @@ const BubbleSort = () => {
       }
       d3.select(`#${temp[temp.length - i - 1].id}`).style('fill', 'yellow');
     }
-    setIsSorting(false);
   };
 
-  useEffect(() => {
-    const svg = d3.select(svgContainerRef.current);
-    svg.selectAll('*').interrupt();
-    svg
-      .selectAll('rect')
-      .data(data)
-      .join('rect')
-      .style('stroke', 'gray')
-      .style('fill', 'black')
-      .attr('width', 50)
-      .attr('height', d => {
-        return d.height;
-      })
-      .attr('x', function (d, i) {
-        return i * 70;
-      })
-      .attr('y', d => {
-        return 300 - d.height;
-      })
-      .attr('id', d => {
-        return d.id;
-      });
-  }, [data]);
-
   return (
-    <Container fixed>
-      <svg ref={svgContainerRef} style={svgContainerStyles}></svg>
-      <button disabled={isSorting} onClick={() => changeInitData()}>
-        Randomize array
-      </button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <button disabled={isSorting} onClick={() => bubbleSort()}>
-        Sort
-      </button>
-    </Container>
+    <div>
+      <Navigation />
+      <Grid container rowSpacing={1} columnSpacing={0} paddingTop="10px">
+        <Grid
+          item
+          xs={12}
+          style={{
+            borderStyle: 'solid',
+          }}
+        >
+          <SortingVisualizationContainer
+            data={data}
+            setIsSorting={setIsSorting}
+          />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          paddingBottom="5px"
+          sx={{ borderBottom: 2, borderColor: 'divider' }}
+        >
+          <Button
+            style={{
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              fontSize: '12px',
+            }}
+            disabled={isSorting}
+            variant="contained"
+            onClick={() => changeInitData()}
+          >
+            Randomize array
+          </Button>
+          <Button
+            style={{
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              fontSize: '12px',
+              marginLeft: '10px',
+            }}
+            disabled={isSorting}
+            variant="contained"
+            onClick={() => bubbleSort()}
+          >
+            Start sorting
+          </Button>
+        </Grid>
+        <OverviewAndQuizz />
+      </Grid>
+    </div>
   );
 };
 
-export default BubbleSort;
+export default SortingContainer;

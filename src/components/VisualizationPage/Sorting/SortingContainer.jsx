@@ -1,126 +1,60 @@
 import React, { useState } from 'react';
-import { delay, seedDataRectangles, randomNumber20ToX } from '../../../common/utils';
-import * as d3 from 'd3';
+import { seedDataRectangles, randomNumber20ToX } from '../../../common/utils';
 import SortingVisualizationContainer from './SortingVisualizationContainer';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, TextField } from '@mui/material';
 import Navigation from '../../Navigation';
-import OverviewAndQuizz from '../../OverviewAndQuizz';
+import OverviewAndQuiz from '../../OverviewAndQuiz';
+import { BubbleSort } from './algorithms/BubbleSort';
+import { InsertionSort } from './algorithms/InsertionSort';
+import { HeapSort } from './algorithms/HeapSort';
+import { QuickSort } from './algorithms/QuickSort';
+import { SelectionSort } from './algorithms/SelectionSort';
 
-const SortingContainer = () => {
+const SortingContainer = ({ algorithmName }) => {
   const [data, setData] = useState(seedDataRectangles());
   const [isSorting, setIsSorting] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
+  const [userInputValue, setUserInputValue] = useState(data.map(d => d.height));
 
   // this randomizes data
-  const changeInitData = () => {
+  const randomizeData = () => {
+    setIsSorted(false);
     const newRadius = data.map(obj => {
       obj.height = randomNumber20ToX(200);
       return obj;
     });
     setData(newRadius);
+    setUserInputValue(data.map(d => d.height));
+  };
+
+  const runAlgorithm = () => {
+    switch (algorithmName) {
+      case 'bubble-sort': {
+        BubbleSort(data, setIsSorting, setIsSorted);
+        break;
+      }
+      case 'insertion-sort': {
+        InsertionSort(data, setIsSorting, setIsSorted);
+        break;
+      }
+      case 'heap-sort': {
+        HeapSort(data, setIsSorting, setIsSorted);
+        break;
+      }
+      case 'quick-sort': {
+        QuickSort(data, setIsSorting, setIsSorted);
+        break;
+      }
+      case 'selection-sort': {
+        SelectionSort(data, setIsSorting, setIsSorted);
+        break;
+      }
+      default:
+        break;
+    }
   };
 
   // And here goes our sorting algorithms
-  const bubbleSort = async () => {
-    setIsSorting(true);
-    const temp = data;
-    for (let i = 0; i < temp.length; i++) {
-      for (let j = 0; j < temp.length - i - 1; j++) {
-        const firstId = temp[j].id;
-        const secondId = temp[j + 1].id;
-        const firstRect = d3.select(`#${firstId}`);
-        const secondRect = d3.select(`#${secondId}`);
-
-        firstRect
-          .transition()
-          .duration(200)
-          .ease(d3.easeLinear)
-          .style('fill', 'red');
-        secondRect
-          .transition()
-          .duration(200)
-          .ease(d3.easeLinear)
-          .style('fill', 'red');
-        await delay(300);
-
-        if (temp[j].height > temp[j + 1].height) {
-          const tmp = temp[j];
-          temp[j] = temp[j + 1];
-          temp[j + 1] = tmp;
-          firstRect
-            .transition()
-            .duration(500)
-            .ease(d3.easeLinear)
-            .attr('x', document.getElementById(secondId).getAttribute('x'));
-          secondRect
-            .transition()
-            .duration(500)
-            .ease(d3.easeLinear)
-            .attr('x', document.getElementById(firstId).getAttribute('x'));
-          await delay(600);
-        }
-        firstRect.style('fill', 'black');
-        secondRect.style('fill', 'black');
-      }
-      d3.select(`#${temp[temp.length - i - 1].id}`).style('fill', 'yellow');
-    }
-    setIsSorting(false);
-    setIsSorted(true);
-  };
-
-  const InsertionSort = async () => {
-    setIsSorting(true);
-    const temp = data;
-
-    d3.select(`#${temp[0].id}`).transition()
-      .duration(200)
-      .style('fill', 'yellow');
-    await delay(300);
-
-    for (let i = 1; i < temp.length; i++) {
-      const key = temp[i];
-      let j = i - 1;
-
-      while (j >= 0 && temp[j].height > key.height) {
-        const firstId = temp[j].id;
-        const secondId = temp[j + 1].id;
-        const tmp = temp[j + 1];
-        const firstRect = d3.select(`#${firstId}`);
-        const secondRect = d3.select(`#${secondId}`);
-        firstRect.transition()
-          .duration(200)
-          .ease(d3.easeLinear)
-          .style('fill', 'red');
-        secondRect.transition()
-          .duration(200)
-          .ease(d3.easeLinear)
-          .style('fill', 'red');
-        await delay(300);
-        
-        temp[j + 1] = temp[j];
-        temp[j] = tmp;
-        j = j - 1;
-
-        firstRect
-          .transition()
-          .duration(500)
-          .ease(d3.easeLinear)
-          .attr('x', document.getElementById(secondId).getAttribute('x'));
-        secondRect
-          .transition()
-          .duration(500)
-          .ease(d3.easeLinear)
-          .attr('x', document.getElementById(firstId).getAttribute('x'));
-        await delay(600);
-
-        firstRect.style('fill', 'yellow');
-      }
-    temp[j + 1] = key;
-    d3.select(`#${temp[j+1].id}`).style('fill', 'yellow');
-    }
-    setIsSorting(false);
-    setIsSorted(true);
-  };
 
   return (
     <div>
@@ -144,33 +78,48 @@ const SortingContainer = () => {
           paddingBottom="5px"
           sx={{ borderBottom: 2, borderColor: 'divider' }}
         >
+          <TextField
+            style={{
+              width: '350px',
+            }}
+            label="Initial array values"
+            id="outlined-size-small"
+            value={userInputValue}
+            disabled={isSorting}
+            size="small"
+            onChange={e => setUserInputValue(e.target.value)}
+          />
           <Button
             style={{
               backgroundColor: '#ffffff',
               color: '#000000',
               fontSize: '12px',
+              marginTop: '5px',
+              marginLeft: '10px',
             }}
             disabled={isSorting}
             variant="contained"
-            onClick={() => changeInitData()}
+            onClick={() => randomizeData()}
           >
             Randomize array
           </Button>
+
           <Button
             style={{
               backgroundColor: '#ffffff',
               color: '#000000',
               fontSize: '12px',
               marginLeft: '10px',
+              marginTop: '5px',
             }}
             disabled={isSorting || isSorted}
             variant="contained"
-            onClick={() => bubbleSort()}
+            onClick={() => runAlgorithm()}
           >
             Start sorting
           </Button>
         </Grid>
-        <OverviewAndQuizz />
+        <OverviewAndQuiz />
       </Grid>
     </div>
   );

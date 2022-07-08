@@ -50,7 +50,7 @@ const ParticlesBackground = () => {
             color: '#000000FF',
             distance: 150,
             enable: true,
-            opacity: 0.25,
+            opacity: 0.15,
             width: 1.5,
           },
           collisions: {

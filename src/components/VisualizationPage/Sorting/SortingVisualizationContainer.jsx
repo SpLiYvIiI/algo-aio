@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { Grid } from '@mui/material';
 
 // this component just initializes svg and draws data on change
 const SortingVisualizationContainer = ({ data, setIsSorting }) => {
@@ -34,7 +35,19 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
       });
   }, [data]);
 
-  return <svg ref={svgContainerRef} style={svgContainerStyles}></svg>;
+  return (
+    <Grid container>
+      <Grid
+        item
+        xs={12}
+        style={{
+          borderStyle: 'solid',
+        }}
+      >
+        <svg ref={svgContainerRef} style={svgContainerStyles}></svg>
+      </Grid>
+    </Grid>
+  );
 };
 
 export default SortingVisualizationContainer;

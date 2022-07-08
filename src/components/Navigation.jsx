@@ -16,16 +16,18 @@ const Navigation = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <img
-        src={algoaiologo}
-        alt={'logo'}
-        style={{
-          height: '50px',
-          width: 'auto',
-          cursor: 'pointer',
-        }}
-        onClick={() => goToHomePage()}
-      />
+      <Grid item xs={12}>
+        <img
+          src={algoaiologo}
+          alt={'logo'}
+          style={{
+            height: '50px',
+            width: 'auto',
+            cursor: 'pointer',
+          }}
+          onClick={() => goToHomePage()}
+        />
+      </Grid>
     </Grid>
   );
 };

@@ -1,15 +1,32 @@
 import React from 'react';
 import Sorting from './Sorting';
+import { Grid } from '@mui/material';
+import InfoAboutAlgorithmPage from '../InfoAboutAlgorithmPage';
 const VisualizationPage = ({ algorithmType, algorithmName }) => {
-  if (algorithmType === 'GRAPH-TRAVERSAL') {
-    return <div>graph-algorithms</div>;
-  } else if (algorithmType === 'SORTING') {
-    return (
-      <div>
-        <Sorting algorithmName={algorithmName} />
-      </div>
-    );
-  }
+  return (
+    <Grid
+      container
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      rowSpacing={1}
+      columnSpacing={0}
+    >
+      <Grid item xs={12}>
+        {algorithmType === 'GRAPH-TRAVERSAL' ? (
+          <></>
+        ) : (
+          <Sorting algorithmName={algorithmName} />
+        )}
+      </Grid>
+      <Grid item xs={12}>
+        <InfoAboutAlgorithmPage
+          algorithmType={algorithmType}
+          algorithmName={algorithmName}
+        />
+      </Grid>
+    </Grid>
+  );
 };
 
 export default VisualizationPage;

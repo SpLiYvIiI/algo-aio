@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-import { delay } from '../../../../common/utils';
+import { swapTwoRectanglesAnimation } from './utils';
 
 export const SelectionSort = async (data, setIsSorting, setIsSorted) => {
   setIsSorting(true);
@@ -18,23 +17,7 @@ export const SelectionSort = async (data, setIsSorting, setIsSorted) => {
       temp[i] = temp[k];
       temp[k] = tmp;
 
-      const firstId = temp[i].id;
-      const secondId = temp[k].id;
-      const firstRect = d3.select(`#${firstId}`);
-      const secondRect = d3.select(`#${secondId}`);
-
-      firstRect
-        .transition()
-        .duration(500)
-        .ease(d3.easeLinear)
-        .attr('x', document.getElementById(secondId).getAttribute('x'));
-      secondRect
-        .transition()
-        .duration(500)
-        .ease(d3.easeLinear)
-        .attr('x', document.getElementById(firstId).getAttribute('x'));
-
-      await delay(600);
+      await swapTwoRectanglesAnimation(temp[i], temp[k], 500, 600);
     }
   }
 

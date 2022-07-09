@@ -1,48 +1,37 @@
-import * as d3 from 'd3';
-import { delay } from '../../../../common/utils';
+import {
+  colorizeSingleRectangle,
+  colorizeTwoRectangles,
+  swapTwoRectanglesAnimation,
+} from './utils';
 
 export const BubbleSort = async (data, setIsSorting, setIsSorted) => {
   setIsSorting(true);
   const temp = data;
   for (let i = 0; i < temp.length; i++) {
     for (let j = 0; j < temp.length - i - 1; j++) {
-      const firstId = temp[j].id;
-      const secondId = temp[j + 1].id;
-      const firstRect = d3.select(`#${firstId}`);
-      const secondRect = d3.select(`#${secondId}`);
+      const firstElement = temp[j];
+      const secondElement = temp[j + 1];
 
-      firstRect
-        .transition()
-        .duration(200)
-        .ease(d3.easeLinear)
-        .style('fill', 'red');
-      secondRect
-        .transition()
-        .duration(200)
-        .ease(d3.easeLinear)
-        .style('fill', 'red');
-      await delay(300);
+      await colorizeTwoRectangles(
+        firstElement,
+        secondElement,
+        200,
+        300,
+        'red',
+        'red'
+      );
 
       if (temp[j].height > temp[j + 1].height) {
         const tmp = temp[j];
         temp[j] = temp[j + 1];
         temp[j + 1] = tmp;
-        firstRect
-          .transition()
-          .duration(500)
-          .ease(d3.easeLinear)
-          .attr('x', document.getElementById(secondId).getAttribute('x'));
-        secondRect
-          .transition()
-          .duration(500)
-          .ease(d3.easeLinear)
-          .attr('x', document.getElementById(firstId).getAttribute('x'));
-        await delay(600);
+
+        await swapTwoRectanglesAnimation(firstElement, secondElement, 500, 600);
       }
-      firstRect.style('fill', 'black');
-      secondRect.style('fill', 'black');
+      await colorizeSingleRectangle(firstElement, 0, 0, 'black');
+      await colorizeSingleRectangle(secondElement, 0, 0, 'black');
     }
-    d3.select(`#${temp[temp.length - i - 1].id}`).style('fill', 'yellow');
+    await colorizeSingleRectangle(temp[temp.length - i - 1], 0, 0, 'yellow');
   }
   setIsSorting(false);
   setIsSorted(true);

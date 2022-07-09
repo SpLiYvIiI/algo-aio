@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { seedDataRectangles, randomNumber20ToX } from '../../../common/utils';
 import { Button, Grid, TextField } from '@mui/material';
 import { BubbleSort } from './algorithms/BubbleSort';
 import { InsertionSort } from './algorithms/InsertionSort';
@@ -7,6 +6,7 @@ import { HeapSort } from './algorithms/HeapSort';
 import { QuickSort } from './algorithms/QuickSort';
 import { SelectionSort } from './algorithms/SelectionSort';
 import SortingVisualizationContainer from './SortingVisualizationContainer';
+import { seedDataRectangles } from './algorithms/utils';
 
 const SortingVisualization = ({ algorithmName }) => {
   const [data, setData] = useState(seedDataRectangles());
@@ -17,11 +17,7 @@ const SortingVisualization = ({ algorithmName }) => {
   // this randomizes data
   const randomizeData = () => {
     setIsSorted(false);
-    const newRadius = data.map(obj => {
-      obj.height = randomNumber20ToX(200);
-      return obj;
-    });
-    setData(newRadius);
+    setData(seedDataRectangles());
     setUserInputValue(data.map(d => d.height));
   };
 

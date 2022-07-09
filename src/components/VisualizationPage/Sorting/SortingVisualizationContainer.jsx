@@ -14,25 +14,66 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
     setIsSorting(false);
     const svg = d3.select(svgContainerRef.current);
     svg.selectAll('*').interrupt();
-    svg
-      .selectAll('rect')
-      .data(data)
-      .join('rect')
+    svg.selectAll('*').remove();
+
+    const elem = svg.selectAll('g').data(data);
+
+    const elemEnter = elem
+      .join('g')
+      .attr('transform', function (d, i) {
+        return `translate(${d.x},${250-d.height})`;
+      })
+      .attr('id', d => {
+        return d.id;
+      });
+
+    elemEnter
+      .append('rect')
       .style('stroke', 'gray')
       .style('fill', 'black')
       .attr('width', 50)
       .attr('height', d => {
         return d.height;
       })
-      .attr('x', function (d, i) {
-        return i * 70 + (window.innerWidth - 700) / 2;
-      })
-      .attr('y', d => {
-        return 250 - d.height;
-      })
       .attr('id', d => {
-        return d.id;
+        return d.rectId;
+      })
+      .attr('x', () => {
+        return 0;
       });
+
+    elemEnter
+      .append('text')
+      .attr('dx', d => {
+        if (d.height >= 100) {
+          return 12;
+        } else return 15;
+      })
+      .attr('dy', d => {
+        return -5;
+      })
+      .text(function (d) {
+        return d.height;
+      });
+    // svg
+    //   .selectAll('rect')
+    //   .data(data)
+    //   .join('rect')
+    //   .style('stroke', 'gray')
+    //   .style('fill', 'black')
+    //   .attr('width', 50)
+    //   .attr('height', d => {
+    //     return d.height;
+    //   })
+    //   .attr('x', function (d, i) {
+    //     return i * 70 + (window.innerWidth - 700) / 2;
+    //   })
+    //   .attr('y', d => {
+    //     return 250 - d.height;
+    //   })
+    //   .attr('id', d => {
+    //     return d.id;
+    //   });
   }, [data]);
 
   return (

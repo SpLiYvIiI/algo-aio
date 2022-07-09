@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-import { delay } from '../../../../common/utils';
+import { swapTwoRectanglesAnimation } from './utils';
 
 export const QuickSort = (data, setIsSorting, setIsSorted) => {
   const partition = async (arr, low, high) => {
@@ -12,47 +11,14 @@ export const QuickSort = (data, setIsSorting, setIsSorted) => {
         const tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
-
-        const firstId = arr[i].id;
-        const secondId = arr[j].id;
-        const firstRect = d3.select(`#${firstId}`);
-        const secondRect = d3.select(`#${secondId}`);
-
-        firstRect
-          .transition()
-          .duration(300)
-          .ease(d3.easeLinear)
-          .attr('x', document.getElementById(secondId).getAttribute('x'));
-        secondRect
-          .transition()
-          .duration(300)
-          .ease(d3.easeLinear)
-          .attr('x', document.getElementById(firstId).getAttribute('x'));
-
-        await delay(600);
+        await swapTwoRectanglesAnimation(arr[i], arr[j], 300, 600);
       }
     }
     const tmp = arr[i + 1];
     arr[i + 1] = arr[high];
     arr[high] = tmp;
 
-    const firstId = arr[i + 1].id;
-    const secondId = arr[high].id;
-    const firstRect = d3.select(`#${firstId}`);
-    const secondRect = d3.select(`#${secondId}`);
-
-    firstRect
-      .transition()
-      .duration(100)
-      .ease(d3.easeLinear)
-      .attr('x', document.getElementById(secondId).getAttribute('x'));
-    secondRect
-      .transition()
-      .duration(100)
-      .ease(d3.easeLinear)
-      .attr('x', document.getElementById(firstId).getAttribute('x'));
-
-    await delay(200);
+    await swapTwoRectanglesAnimation(arr[i + 1], arr[high], 100, 200);
 
     return i + 1;
   };

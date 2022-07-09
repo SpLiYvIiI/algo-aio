@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-import { delay } from '../../../../common/utils';
+import { swapTwoRectanglesAnimation } from './utils';
 
 export const HeapSort = (data, setIsSorting, setIsSorted) => {
   const Heapify = async (arr, n, i) => {
@@ -16,23 +15,7 @@ export const HeapSort = (data, setIsSorting, setIsSorted) => {
       arr[i] = arr[largest];
       arr[largest] = tmp;
 
-      const firstId = arr[i].id;
-      const secondId = arr[largest].id;
-      const firstRect = d3.select(`#${firstId}`);
-      const secondRect = d3.select(`#${secondId}`);
-
-      firstRect
-        .transition()
-        .duration(100)
-        .ease(d3.easeLinear)
-        .attr('x', document.getElementById(secondId).getAttribute('x'));
-      secondRect
-        .transition()
-        .duration(100)
-        .ease(d3.easeLinear)
-        .attr('x', document.getElementById(firstId).getAttribute('x'));
-
-      await delay(200);
+      await swapTwoRectanglesAnimation(arr[i], arr[largest], 100, 200);
 
       await Heapify(arr, n, largest);
     }
@@ -50,22 +33,8 @@ export const HeapSort = (data, setIsSorting, setIsSorted) => {
       arr[0] = arr[i];
       arr[i] = tmp;
 
-      const firstId = arr[0].id;
-      const secondId = arr[i].id;
-      const firstRect = d3.select(`#${firstId}`);
-      const secondRect = d3.select(`#${secondId}`);
+      await swapTwoRectanglesAnimation(arr[0], arr[i], 100, 200);
 
-      firstRect
-        .transition()
-        .duration(100)
-        .ease(d3.easeLinear)
-        .attr('x', document.getElementById(secondId).getAttribute('x'));
-      secondRect
-        .transition()
-        .duration(100)
-        .ease(d3.easeLinear)
-        .attr('x', document.getElementById(firstId).getAttribute('x'));
-      await delay(200);
       await Heapify(arr, i, 0);
     }
   };

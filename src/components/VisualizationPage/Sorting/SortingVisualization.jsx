@@ -21,26 +21,26 @@ const SortingVisualization = ({ algorithmName }) => {
     setUserInputValue(data.map(d => d.height));
   };
 
-  const runAlgorithm = () => {
+  const runAlgorithm = async () => {
     switch (algorithmName) {
       case 'bubble-sort': {
-        BubbleSort(data, setIsSorting, setIsSorted);
+        await BubbleSort(data, setIsSorting, setIsSorted);
         break;
       }
       case 'insertion-sort': {
-        InsertionSort(data, setIsSorting, setIsSorted);
+        await InsertionSort(data, setIsSorting, setIsSorted);
         break;
       }
       case 'heap-sort': {
-        HeapSort(data, setIsSorting, setIsSorted);
+        await HeapSort(data, setIsSorting, setIsSorted);
         break;
       }
       case 'quick-sort': {
-        QuickSort(data, setIsSorting, setIsSorted);
+        await QuickSort(data, setIsSorting, setIsSorted);
         break;
       }
       case 'selection-sort': {
-        SelectionSort(data, setIsSorting, setIsSorted);
+        await SelectionSort(data, setIsSorting, setIsSorted);
         break;
       }
       default:

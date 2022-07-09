@@ -12,7 +12,6 @@ const Main = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/algorithms" element={<AlgorithmsNavigationPage />} />
         {Object.keys(learningMaterial.SORTING).map((key, id) => {
-          console.log(key);
           return (
             <Route
               key={id}

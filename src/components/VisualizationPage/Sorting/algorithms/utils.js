@@ -23,7 +23,6 @@ const seedDataRectangles = () => {
     seedData.push({
       id: `r${i}`,
       height: rand,
-      x: i * 70 + (window.innerWidth - 700) / 2,
       rectId: `rId${i}`,
     });
   }

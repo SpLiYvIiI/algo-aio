@@ -21,7 +21,7 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
     const elemEnter = elem
       .join('g')
       .attr('transform', function (d, i) {
-        return `translate(${d.x},${250-d.height})`;
+        return `translate(${i * 70 + (window.innerWidth - 700) / 2},${250-d.height})`;
       })
       .attr('id', d => {
         return d.id;

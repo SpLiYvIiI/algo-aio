@@ -1,6 +1,6 @@
 import { swapTwoRectanglesAnimation } from './utils';
 
-export const HeapSort = (data, setIsSorting, setIsSorted) => {
+export const HeapSort = async (data, setIsSorting, setIsSorted) => {
   const Heapify = async (arr, n, i) => {
     let largest = i;
     const l = 2 * i + 1;
@@ -41,7 +41,7 @@ export const HeapSort = (data, setIsSorting, setIsSorted) => {
   setIsSorting(true);
   const temp = data;
 
-  HeapSortAlg(temp);
+  await HeapSortAlg(temp);
 
   setIsSorting(false);
   setIsSorted(true);

@@ -82,7 +82,21 @@ const SortingVisualization = ({ algorithmName }) => {
               value={userInputValue}
               disabled={isSorting}
               size="small"
-              onChange={e => setUserInputValue(e.target.value)}
+              onChange={e => {
+                const arr = e.target.value.split(",").map(
+                  x => parseInt(x)
+                );
+                let i = 0;
+
+                const newRadius = data.map(obj => {
+                  obj.height = arr[i++];
+                  return obj;
+                });
+
+                setData(newRadius);
+                setUserInputValue(data.map(d => d.height));
+                setUserInputValue(e.target.value);
+              }}
             />
           </Grid>
           <Grid item>

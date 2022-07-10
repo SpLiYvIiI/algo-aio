@@ -2,7 +2,7 @@ import React from 'react';
 import Visualization from './Visualization';
 import { Grid } from '@mui/material';
 import Navigation from '../../Navigation';
-const Sorting = ({ algorithmName }) => {
+const GraphTraversal = ({ algorithmName }) => {
   return (
     <div>
       <Grid
@@ -24,4 +24,4 @@ const Sorting = ({ algorithmName }) => {
   );
 };
 
-export default Sorting;
+export default GraphTraversal;

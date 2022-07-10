@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import { Grid } from '@mui/material';
 
 // this component just initializes svg and draws data on change
-const SortingVisualizationContainer = ({ data, setIsSorting }) => {
+const VisualizationContainer = ({ data, setIsSorting }) => {
   const svgContainerRef = useRef();
   const svgContainerStyles = {
     height: 250,
@@ -21,7 +21,9 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
     const elemEnter = elem
       .join('g')
       .attr('transform', function (d, i) {
-        return `translate(${i * 70 + (window.innerWidth - 700) / 2},${250-d.height})`;
+        return `translate(${
+          i * 70 + (window.innerWidth - 700) / 2
+        },${250 - d.height})`;
       })
       .attr('id', d => {
         return d.id;
@@ -55,25 +57,6 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
       .text(function (d) {
         return d.height;
       });
-    // svg
-    //   .selectAll('rect')
-    //   .data(data)
-    //   .join('rect')
-    //   .style('stroke', 'gray')
-    //   .style('fill', 'black')
-    //   .attr('width', 50)
-    //   .attr('height', d => {
-    //     return d.height;
-    //   })
-    //   .attr('x', function (d, i) {
-    //     return i * 70 + (window.innerWidth - 700) / 2;
-    //   })
-    //   .attr('y', d => {
-    //     return 250 - d.height;
-    //   })
-    //   .attr('id', d => {
-    //     return d.id;
-    //   });
   }, [data]);
 
   return (
@@ -91,4 +74,4 @@ const SortingVisualizationContainer = ({ data, setIsSorting }) => {
   );
 };
 
-export default SortingVisualizationContainer;
+export default VisualizationContainer;

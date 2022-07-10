@@ -1,4 +1,8 @@
-import { swapTwoRectanglesAnimation } from './utils';
+import {
+  colorizeSingleRectangle,
+  colorizeTwoRectangles,
+  swapTwoRectanglesAnimation,
+} from './utils';
 
 export const HeapSort = async (data, setIsSorting, setIsSorted) => {
   const Heapify = async (arr, n, i) => {
@@ -6,16 +10,22 @@ export const HeapSort = async (data, setIsSorting, setIsSorted) => {
     const l = 2 * i + 1;
     const r = 2 * i + 2;
 
-    if (l < n && arr[l].height > arr[largest].height) largest = l;
+    if (l < n && arr[l].height > arr[largest].height) {
+      largest = l;
+    }
 
-    if (r < n && arr[r].height > arr[largest].height) largest = r;
+    if (r < n && arr[r].height > arr[largest].height) {
+      largest = r;
+    }
 
     if (largest !== i) {
       const tmp = arr[i];
       arr[i] = arr[largest];
       arr[largest] = tmp;
 
-      await swapTwoRectanglesAnimation(arr[i], arr[largest], 100, 200);
+      await colorizeTwoRectangles(arr[i], arr[largest], 200, 300, 'red', 'red');
+      await swapTwoRectanglesAnimation(arr[i], arr[largest], 500, 600);
+      await colorizeTwoRectangles(arr[i], arr[largest], 0, 0, 'black', 'black');
 
       await Heapify(arr, n, largest);
     }
@@ -28,13 +38,14 @@ export const HeapSort = async (data, setIsSorting, setIsSorted) => {
       await Heapify(arr, n, i);
     }
 
-    for (let i = n - 1; i > 0; i--) {
+    for (let i = n - 1; i >= 0; i--) {
       const tmp = arr[0];
       arr[0] = arr[i];
       arr[i] = tmp;
-
-      await swapTwoRectanglesAnimation(arr[0], arr[i], 100, 200);
-
+      await colorizeTwoRectangles(arr[0], arr[i], 0, 0, 'red', 'red');
+      await swapTwoRectanglesAnimation(arr[0], arr[i], 500, 600);
+      await colorizeTwoRectangles(arr[0], arr[i], 0, 0, 'black', 'black');
+      await colorizeSingleRectangle(arr[i], 0, 0, 'yellow');
       await Heapify(arr, i, 0);
     }
   };

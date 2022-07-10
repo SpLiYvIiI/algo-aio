@@ -28,8 +28,14 @@ export const BubbleSort = async (data, setIsSorting, setIsSorted) => {
 
         await swapTwoRectanglesAnimation(firstElement, secondElement, 500, 600);
       }
-      await colorizeSingleRectangle(firstElement, 0, 0, 'black');
-      await colorizeSingleRectangle(secondElement, 0, 0, 'black');
+      await colorizeTwoRectangles(
+        firstElement,
+        secondElement,
+        0,
+        0,
+        'black',
+        'black'
+      );
     }
     await colorizeSingleRectangle(temp[temp.length - i - 1], 0, 0, 'yellow');
   }

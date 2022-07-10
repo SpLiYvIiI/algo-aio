@@ -2,6 +2,7 @@ import React from 'react';
 import Sorting from './Sorting';
 import { Grid } from '@mui/material';
 import InfoAboutAlgorithmPage from '../InfoAboutAlgorithmPage';
+import GraphTraversal from './Graph-traversal';
 const VisualizationPage = ({ algorithmType, algorithmName }) => {
   return (
     <Grid
@@ -14,7 +15,7 @@ const VisualizationPage = ({ algorithmType, algorithmName }) => {
     >
       <Grid item xs={12}>
         {algorithmType === 'GRAPH-TRAVERSAL' ? (
-          <></>
+          <GraphTraversal algorithmName={algorithmName} />
         ) : (
           <Sorting algorithmName={algorithmName} />
         )}

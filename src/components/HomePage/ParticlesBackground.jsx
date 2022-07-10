@@ -7,9 +7,7 @@ const ParticlesBackground = () => {
     await loadFull(main);
   };
 
-  const particlesLoaded = container => {
-
-  };
+  const particlesLoaded = container => {};
   return (
     <Particles
       id="tsparticles"

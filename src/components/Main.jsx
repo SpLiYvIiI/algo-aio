@@ -25,6 +25,20 @@ const Main = () => {
             />
           );
         })}
+        {Object.keys(learningMaterial['GRAPH-TRAVERSAL']).map((key, id) => {
+          return (
+            <Route
+              key={id}
+              path={`/algorithms/${key}`}
+              element={
+                <VisualizationPage
+                  algorithmType="GRAPH-TRAVERSAL"
+                  algorithmName={key}
+                />
+              }
+            />
+          );
+        })}
       </Routes>
     </BrowserRouter>
   );

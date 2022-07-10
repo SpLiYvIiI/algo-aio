@@ -111,5 +111,32 @@ export const learningMaterial = {
       ],
     },
   },
-  'graph-traversal': {},
+  'GRAPH-TRAVERSAL': {
+    'depth-first-search': {
+      fancyName: 'Depth first search',
+      overview: bubbleSortOverView,
+      complexities: {
+        worst: bubbleSortWorstComplexity,
+        average: bubbleSortWorstComplexity,
+        best: bubbleSortWorstComplexity,
+      },
+      additionalSources: [
+        'https://www.geeksforgeeks.org/bubble-sort/',
+        'https://www.programiz.com/dsa/bubble-sort',
+      ],
+    },
+    'breadth-first-search': {
+      fancyName: 'Breadth first search',
+      overview: bubbleSortOverView,
+      complexities: {
+        worst: bubbleSortWorstComplexity,
+        average: bubbleSortWorstComplexity,
+        best: bubbleSortWorstComplexity,
+      },
+      additionalSources: [
+        'https://www.geeksforgeeks.org/bubble-sort/',
+        'https://www.programiz.com/dsa/bubble-sort',
+      ],
+    },
+  },
 };

@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import { delay } from '../../../../common/utils';
 
 const getTranslateValues = id => {
   const string = document.getElementById(id).getAttribute('transform');
@@ -6,14 +7,6 @@ const getTranslateValues = id => {
   return string
     .substring(string.indexOf('(') + 1, string.indexOf(')'))
     .split(',');
-};
-
-const delay = delayInms => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(2);
-    }, delayInms);
-  });
 };
 
 const seedDataRectangles = () => {
@@ -59,7 +52,11 @@ const colorizeSingleRectangle = async (
   color = 'red'
 ) => {
   const rect = d3.select(`#${element.rectId}`);
-  rect.transition().duration(durationMs).ease(d3.easeLinear).style('fill', color);
+  rect
+    .transition()
+    .duration(durationMs)
+    .ease(d3.easeLinear)
+    .style('fill', color);
   await delay(delayMs);
 };
 
@@ -73,12 +70,16 @@ const colorizeTwoRectangles = async (
 ) => {
   const firstRect = d3.select(`#${firstElement.rectId}`);
   const secondRect = d3.select(`#${secondElement.rectId}`);
-  firstRect.transition().duration(200).ease(d3.easeLinear).style('fill', 'red');
+  firstRect
+    .transition()
+    .duration(200)
+    .ease(d3.easeLinear)
+    .style('fill', firstColor);
   secondRect
     .transition()
     .duration(durationMs)
     .ease(d3.easeLinear)
-    .style('fill', 'red');
+    .style('fill', secondColor);
 
   await delay(delayMs);
 };

@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { loremIpsumText } from '../../common/consts';
+import { aboutProjectText } from '../../common/consts';
 
 const About = () => {
   return (
@@ -22,7 +22,7 @@ const About = () => {
             fontSize: '20px',
           }}
         >
-          {loremIpsumText}
+          {aboutProjectText}
         </Typography>
       </Grid>
     </Grid>

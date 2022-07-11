@@ -50,7 +50,7 @@ const Quiz = () => {
   };
 
   const startQuiz = async () => {
-    if (!category || !difficulty) {
+    if (!category || !difficulty || !numberOfQuestions) {
       setErrorMessage('Please select quiz options');
       setTimeout(() => {
         setErrorMessage(null);

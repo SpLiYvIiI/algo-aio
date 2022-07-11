@@ -3,6 +3,7 @@ import { Button, Grid, TextField } from '@mui/material';
 import VisualizationContainer from './VisualizationContainer';
 import Typography from '@mui/material/Typography';
 import { BFS } from './algorithms/BFS';
+import { DFS } from './algorithms/DFS';
 
 const Visualization = ({ algorithmName }) => {
   const [data, setData] = useState({
@@ -62,6 +63,10 @@ const Visualization = ({ algorithmName }) => {
     switch (algorithmName) {
       case 'breadth-first-search': {
         await BFS(nodes, edges, setIsTraversing);
+        break;
+      }
+      case 'depth-first-search': {
+        await DFS(nodes, edges, setIsTraversing);
         break;
       }
       default:

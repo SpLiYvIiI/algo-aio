@@ -17,16 +17,15 @@ export const BFS = async (nodes, edges, setIsTraversing) => {
   que.push(0);
   while (que.length !== 0) {
     const u = que.shift();
-    console.log(u);
     await colorizeVertex(u, 300, 400, 'red');
     for (let i = 0; i < adjList[u].length; i++) {
       const e = adjList[u][i][1];
       const v = adjList[u][i][0];
-      await colorizeEdge(e, 300, 400, 'orange');
+
       if (visited.indexOf(v) !== -1) {
-        if (v !== u) await colorizeEdge(e, 300, 400, 'grey');
         continue;
       } else {
+        await colorizeEdge(e, 300, 400, 'orange');
         visited.push(v);
         que.push(v);
       }

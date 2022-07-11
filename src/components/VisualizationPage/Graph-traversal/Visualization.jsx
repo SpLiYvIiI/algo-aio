@@ -80,7 +80,7 @@ const Visualization = ({ algorithmName }) => {
       direction="row"
       justifyContent="flex-start"
       alignItems="flex-start"
-      rowSpacing={1}
+      rowSpacing={2}
       columnSpacing={0}
     >
       <Grid item xs={12}>
@@ -107,8 +107,8 @@ const Visualization = ({ algorithmName }) => {
                 backgroundColor: '#ffffff',
                 color: '#000000',
                 fontSize: '12px',
-                marginTop: '5px',
-                marginLeft: '15px',
+                marginTop: '3px',
+                marginLeft: '8px',
               }}
               variant="contained"
               disabled={(data.nodes.length >= 10 || isTraversing)}
@@ -123,7 +123,7 @@ const Visualization = ({ algorithmName }) => {
             <TextField
               style={{
                 width: '125px',
-                marginLeft: '10px',
+                marginLeft: '8px',
               }}
               type="number"
               label="Source vertex"
@@ -140,7 +140,7 @@ const Visualization = ({ algorithmName }) => {
             <TextField
               style={{
                 width: '125px',
-                marginLeft: '10px',
+                marginLeft: '8px',
               }}
               type="number"
               label="Target vertex"
@@ -159,8 +159,8 @@ const Visualization = ({ algorithmName }) => {
                 backgroundColor: '#ffffff',
                 color: '#000000',
                 fontSize: '12px',
-                marginTop: '5px',
-                marginLeft: '15px',
+                marginTop: '3px',
+                marginLeft: '8px',
               }}
               variant="contained"
               disabled={isTraversing}
@@ -175,8 +175,8 @@ const Visualization = ({ algorithmName }) => {
                 backgroundColor: '#ffffff',
                 color: '#000000',
                 fontSize: '12px',
-                marginTop: '5px',
-                marginLeft: '15px',
+                marginTop: '3px',
+                marginLeft: '8px',
               }}
               disabled={isTraversing}
               variant="contained"
@@ -191,8 +191,8 @@ const Visualization = ({ algorithmName }) => {
                 backgroundColor: '#ffffff',
                 color: '#000000',
                 fontSize: '12px',
-                marginTop: '5px',
-                marginLeft: '15px',
+                marginTop: '3px',
+                marginLeft: '8px',
               }}
               disabled={isTraversing}
               variant="contained"
@@ -208,6 +208,7 @@ const Visualization = ({ algorithmName }) => {
               fontSize: '12px',
               marginTop: '8px',
               marginLeft: '20px',
+              marginBottom: '46px'
             }}
           >
             <Typography align="center">{errorMessage}</Typography>

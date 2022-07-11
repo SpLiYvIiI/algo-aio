@@ -111,7 +111,7 @@ const Visualization = ({ algorithmName }) => {
                 marginLeft: '8px',
               }}
               variant="contained"
-              disabled={(data.nodes.length >= 10 || isTraversing)}
+              disabled={data.nodes.length >= 10 || isTraversing}
               onClick={() => {
                 setOnClickFunction(true);
               }}

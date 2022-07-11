@@ -28,18 +28,14 @@ const selectionSortOverView =
   'Selection sort ალგორითმი ახარისხებს მასივს დაულაგებელი ნაწილიდან მინიმალური ელემენტის (ზრდადი რიგის გათვალისწინებით) განმეორებითი მოძიებით და დასაწყისში ჩასმით. ალგორითმი ინარჩუნებს ორ ქვემასივს მოცემულ მასივში. ქვემასივი, რომელიც უკვე დალაგებულია. დარჩენილი ქვემასივს, რომელიც დაუხარისხებელია. Selection sort-ის ყოველი იტერაციისას, მინიმალური ელემენტი (ზრდადი რიგის გათვალისწინებით) დაუხარისხებელი ქვემასივიდან აირჩევა და გადადის დალაგებულ ქვემასივში.';
 
 const selectionSortWorstComplexity =
-<<<<<<< HEAD
   'საუკეთესო, საშუალო და უარესი შემთხვევაა n² (მონაცემთა მიმდევრობა არ ახდენს გავლენას ალგორითმის მუშაობის სიჩქარეზე).';
-=======
-  'საუკეთესო, საშუალო და უარესი შემთხვევა: n2 (მონაცემთა მიმდევრობა არ ახდენს გავლენას ალგორითმის მუშაობის სიჩქარეზე).';
-  const dfsOverView =
+const dfsOverView =
   'Depth-First Search ან DFS ალგორითმი იკვლევს მონაცემთა სტრუქტურებს, როგორიცაა ხეები და გრაფიკები. იგი არის რეკურსიული ალგორითმი, რომელიც იყენებს backtracking-ის პრინციპს. ის გულისხმობს ყველა კვანძის ამომწურავი ძიების ჩატარებას, თუ ეს შესაძლებელია, წინსვლას და საჭიროების შემთხვევაში უკან დაბრუნებას.';
-  const bfsOverView =
+const bfsOverView =
   'Breadth-First Search ძიება ან BFS ალგორითმი გამოიყენება ხის ან გრაფის გამოსაკვლევად, ისეთი კვანძისთვის, რომელიც აკმაყოფილებს კრიტერიუმების ერთობლიობას. ის იწყება ხის ან გრაფის ფესვიდან და იკვლევს ყველა კვანძს მიმდინარე სიღრმეზე, სანამ გადავა კვანძებზე მომდევნო დონეზე. თქვენ შეგიძლიათ გადაჭრათ მრავალი პრობლემა გრაფის თეორიაში BFS-ის საშუალებით.';
 
- export const aboutProjectText = 
-  "AlgoAIO წარმოადგენს ინსტრუმენტს სტუდენტებისთვის და არამარტო, გაიმარტივონ ალგორითმების შესწავლა ვიზუალიზაციის მხრივ. თქვენ შეგიძლიათ აირჩიოთ სასურველი ალგორითმი და დაიწყოთ მისი შესწავლა.";
->>>>>>> 6aa481ff5ddd49288c9f44f2167064144c0eef7d
+export const aboutProjectText =
+  'AlgoAIO წარმოადგენს ინსტრუმენტს სტუდენტებისთვის და არამარტო, გაიმარტივონ ალგორითმების შესწავლა ვიზუალიზაციის მხრივ. თქვენ შეგიძლიათ აირჩიოთ სასურველი ალგორითმი და დაიწყოთ მისი შესწავლა.';
 export const loremIpsumText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae\n' +
   '        elementum dolor. Nulla auctor mattis nibh eu consectetur. Vivamus quis\n' +
@@ -156,102 +152,104 @@ export const learningMaterial = {
     },
   },
 };
-export const quiz =  {
-  "quizTitle": "React Quiz Component Demo",
-  "quizSynopsis": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
-  "nrOfQuestions": "4",
-  "questions": [
+export const quiz = {
+  quizTitle: 'React Quiz Component Demo',
+  quizSynopsis:
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim',
+  nrOfQuestions: '4',
+  questions: [
     {
-      "question": "How can you access the state of a component from inside of a member function?",
-      "questionType": "text",
-      "questionPic": "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
-      "answerSelectionType": "single",
-      "answers": [
-        "this.getState()",
-        "this.prototype.stateValue",
-        "this.state",
-        "this.values"
+      question:
+        'How can you access the state of a component from inside of a member function?',
+      questionType: 'text',
+      questionPic: 'https://dummyimage.com/600x400/000/fff&text=X', // if you need to display Picture in Question
+      answerSelectionType: 'single',
+      answers: [
+        'this.getState()',
+        'this.prototype.stateValue',
+        'this.state',
+        'this.values',
       ],
-      "correctAnswer": "3",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
+      correctAnswer: '3',
+      messageForCorrectAnswer: 'Correct answer. Good job.',
+      messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
+      explanation:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      point: '20',
     },
     {
-      "question": "ReactJS is developed by _____?",
-      "questionType": "text",
-      "answerSelectionType": "single",
-      "answers": [
-        "Google Engineers",
-        "Facebook Engineers"
-      ],
-      "correctAnswer": "2",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
+      question: 'ReactJS is developed by _____?',
+      questionType: 'text',
+      answerSelectionType: 'single',
+      answers: ['Google Engineers', 'Facebook Engineers'],
+      correctAnswer: '2',
+      messageForCorrectAnswer: 'Correct answer. Good job.',
+      messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
+      explanation:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      point: '20',
     },
     {
-      "question": "ReactJS is an MVC based framework?",
-      "questionType": "text",
-      "answerSelectionType": "single",
-      "answers": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "2",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "10"
+      question: 'ReactJS is an MVC based framework?',
+      questionType: 'text',
+      answerSelectionType: 'single',
+      answers: ['True', 'False'],
+      correctAnswer: '2',
+      messageForCorrectAnswer: 'Correct answer. Good job.',
+      messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
+      explanation:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      point: '10',
     },
     {
-      "question": "Which of the following concepts is/are key to ReactJS?",
-      "questionType": "text",
-      "answerSelectionType": "single",
-      "answers": [
-        "Component-oriented design",
-        "Event delegation model",
-        "Both of the above",
+      question: 'Which of the following concepts is/are key to ReactJS?',
+      questionType: 'text',
+      answerSelectionType: 'single',
+      answers: [
+        'Component-oriented design',
+        'Event delegation model',
+        'Both of the above',
       ],
-      "correctAnswer": "3",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "30"
+      correctAnswer: '3',
+      messageForCorrectAnswer: 'Correct answer. Good job.',
+      messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
+      explanation:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      point: '30',
     },
     {
-      "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
-      "questionType": "photo",
-      "answerSelectionType": "single",
-      "answers": [
-        "https://dummyimage.com/600x400/000/fff&text=A",
-        "https://dummyimage.com/600x400/000/fff&text=B",
-        "https://dummyimage.com/600x400/000/fff&text=C",
-        "https://dummyimage.com/600x400/000/fff&text=D"
+      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+      questionType: 'photo',
+      answerSelectionType: 'single',
+      answers: [
+        'https://dummyimage.com/600x400/000/fff&text=A',
+        'https://dummyimage.com/600x400/000/fff&text=B',
+        'https://dummyimage.com/600x400/000/fff&text=C',
+        'https://dummyimage.com/600x400/000/fff&text=D',
       ],
-      "correctAnswer": "1",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
+      correctAnswer: '1',
+      messageForCorrectAnswer: 'Correct answer. Good job.',
+      messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
+      explanation:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      point: '20',
     },
     {
-      "question": "What are the advantages of React JS?",
-      "questionType": "text",
-      "answerSelectionType": "multiple",
-      "answers": [
-        "React can be used on client and as well as server side too",
-        "Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps",
-        "React components have lifecycle events that fall into State/Property Updates",
-        "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer"
+      question: 'What are the advantages of React JS?',
+      questionType: 'text',
+      answerSelectionType: 'multiple',
+      answers: [
+        'React can be used on client and as well as server side too',
+        'Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps',
+        'React components have lifecycle events that fall into State/Property Updates',
+        'React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer',
       ],
-      "correctAnswer": [1, 2, 4],
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
+      correctAnswer: [1, 2, 4],
+      messageForCorrectAnswer: 'Correct answer. Good job.',
+      messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
+      explanation:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      point: '20',
     },
-  ]
-} 
+  ],
+};

@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/algo-aio/static/js/main.662fb53b.js",
+    "main.js": "/algo-aio/static/js/main.d15a875c.js",
     "static/media/dfsbfs.gif": "/algo-aio/static/media/dfsbfs.e0144c86499af1eafeb6.gif",
     "static/media/algo-aio-logo.png": "/algo-aio/static/media/algo-aio-logo.e6310deec9ab2a028b7b.png",
     "index.html": "/algo-aio/index.html",
-    "main.662fb53b.js.map": "/algo-aio/static/js/main.662fb53b.js.map"
+    "main.d15a875c.js.map": "/algo-aio/static/js/main.d15a875c.js.map"
   },
   "entrypoints": [
-    "static/js/main.662fb53b.js"
+    "static/js/main.d15a875c.js"
   ]
 }

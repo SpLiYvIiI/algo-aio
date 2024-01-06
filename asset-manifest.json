@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/algo-aio/static/js/main.662fb53b.js",
-    "static/media/dfsbfs.gif": "/algo-aio/static/media/dfsbfs.e0144c86499af1eafeb6.gif",
-    "static/media/algo-aio-logo.png": "/algo-aio/static/media/algo-aio-logo.e6310deec9ab2a028b7b.png",
-    "index.html": "/algo-aio/index.html",
-    "main.662fb53b.js.map": "/algo-aio/static/js/main.662fb53b.js.map"
+    "main.js": "/static/js/main.3ea47f00.js",
+    "static/media/dfsbfs.gif": "/static/media/dfsbfs.e0144c86499af1eafeb6.gif",
+    "static/media/algo-aio-logo.png": "/static/media/algo-aio-logo.e6310deec9ab2a028b7b.png",
+    "index.html": "/index.html",
+    "main.3ea47f00.js.map": "/static/js/main.3ea47f00.js.map"
   },
   "entrypoints": [
-    "static/js/main.662fb53b.js"
+    "static/js/main.3ea47f00.js"
   ]
 }

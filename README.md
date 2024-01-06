@@ -15,8 +15,8 @@ Graph: BFS, DFS
 
 Example of quick sort :
 
-![](https://im5.ezgif.com/tmp/ezgif-5-2c6a503395.gif)
+![](https://s13.gifyu.com/images/Sjebs.gif)
 
 Example of breadth-first search : 
 
-![](https://im5.ezgif.com/tmp/ezgif-5-bec1905b1a.gif)
+![](https://s13.gifyu.com/images/Sjebb.gif)

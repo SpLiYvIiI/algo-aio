@@ -1,6 +1,7 @@
 {
   "name": "algo-aio",
   "version": "0.1.0",
+  "homepage": "https://spliyviii.github.io/algo-aio",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",

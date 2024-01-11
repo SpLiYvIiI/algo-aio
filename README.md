@@ -1,7 +1,7 @@
 # algo-AIO
 Playground for visualization of different algorithms/quiz system (algorithm descriptions in ka).
 
-Libs used: d3.js, react, react router, mui.
+Libs used: d3.js, react, particles.js, mui.
 
 [Live demo](https://spliyviii.github.io/algo-aio/)
 
